@@ -1,0 +1,25 @@
+<ClickWindow>:
+    FloatLayout:
+        Image:
+            source: "img.png"
+            allo_scratch: True
+            keep_ratio: False
+
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "clicker"
+            FloatLayout:
+                Image:
+                    source: "img_1.png"
+                    size_hint: 0.25, 0.5
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    allo_scratch: True
+                    keep_ratio: False
+
+                Button:
+                    size_hint: 0.25, 0.5
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    background: 0,0,0,  0.5
+
+
