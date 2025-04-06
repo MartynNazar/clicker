@@ -1,25 +1,34 @@
 <ClickWindow>:
-    FloatLayout:
+    FloatLayout
         Image:
             source: "img.png"
-            allo_scratch: True
+            allow_stretch: True
             keep_ratio: False
-
         BoxLayout:
             orientation: "vertical"
             Label:
-                text: "clicker"
+                text: "0"
+                id: score_lbl
             FloatLayout:
                 Image:
                     source: "img_1.png"
                     size_hint: 0.25, 0.5
-                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
-                    allo_scratch: True
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5 }
+                    allow_stretch: True
                     keep_ratio: False
-
+                    id: ball_img
                 Button:
                     size_hint: 0.25, 0.5
-                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
-                    background: 0,0,0,  0.5
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5 }
+                    background_color: 0,0,0, 0.5
+                    on_press: root.click()
+                    on_release: root.unclick()
+            Button:
+                text: "Магазин"
+                size_hint: 0.25, 0.5
+                pos_hint: {"center_x": 0.5, "center_y": 0.5 }
+                background_color: 0,0,0, 0.5
+
+
 
 
