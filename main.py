@@ -57,12 +57,26 @@ class ClickWindow(Screen):
     def unclick(self):
         self.ids.ball_img.size_hint = (0.25, 0.5)
 
+    def go_to_shop(self):
+        self.manager.current = "shop"
+
+
+
+class ShopWindow(Screen):
+    def __init__(self,**kw):
+        super(). __init__(**kw)
+
+
+    def go_to_exit(self):
+        self.manager.current = "click_window"
+
+
 
 class ClickerApp(App):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(ClickWindow(name="click_window"))
-
+        sm.add_widget(ShopWindow(name="shop"))
         return sm
 
 
