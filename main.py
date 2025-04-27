@@ -30,6 +30,30 @@ def save_data():
 
 
 
+users = {
+    'user1': 'password',
+    'user2': 'qwerty',
+    'admin': 'secret'
+
+}
+
+class LoginWindow(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+    def go_login(self):
+        username_input = input("Введіть логін")
+        password_input = input("Введіть пароль")
+        if username_input in users:
+            if password_input in users:
+                self.manager.current = "click_window"
+            else:
+                print("неправельний пароль")
+        else:
+            print("неправельний логін")
+
+
+
 
 
 
@@ -47,7 +71,7 @@ class ClickWindow(Screen):
         self.ids.score_lbl.text = str(player_data['score'])
 
     def click(self):
-        player_data['score'] += 1
+        player_data['score'] += player_data['pover']
         self.ids.score_lbl.text = str(player_data['score'])
         self.ids.ball_img.size_hint = (1,1)
         save_data()
@@ -69,6 +93,15 @@ class ShopWindow(Screen):
 
     def go_to_exit(self):
         self.manager.current = "click_window"
+
+    def buy(self,price,bonus):
+        read_data()
+        if player_data['score'] >= price:
+            player_data['score']-= price
+            player_data['pover'] += bonus
+        else:
+            print("не достатньо грошей")
+        save_data()
 
 
 

@@ -62,6 +62,7 @@
                         Button:
                             size_hint: 1, 1
                             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_press: root.buy(100,10)
                         Image:
                             size_hint: 0.1, 1
                             source: "img_3.png"
@@ -139,6 +140,17 @@
                             pos_hint: {"x": 0.8, "center_y": 0.5}
                             text: "1000"
 
+
+
+
+
+
+<LoginWindow>:
+     FloatLayout
+        Image:
+            source: "img_7.png"
+            allow_stretch: True
+            keep_ratio: False
 
 
 
