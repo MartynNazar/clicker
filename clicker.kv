@@ -1,3 +1,47 @@
+<LoginWindow>:
+    FloatLayout
+        Image:
+            source: "img_7.png"
+            allow_stretch: True
+            keep_ratio: False
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "Вхід"
+                font_size: 32
+                color: 0, 0, 0, 1
+            Label:
+                text: "Логін:"
+                color: 0, 0, 0, 1
+            TextInput:
+                id: username_input # Ось id
+                multiline: False
+                size_hint_y: None
+                height: 40
+            Label:
+                text: "Пароль:"
+                color: 0, 0, 0, 1
+            TextInput:
+                id: password_input
+                multiline: False
+                password: True
+                size_hint_y: None
+                height: 40
+            Button:
+                text: "Увійти"
+                on_press: root.verify_login()
+            Label:
+                id: login_message
+                text: ""
+                color: 1, 0, 0, 1
+                size_hint_y: None
+                height: self.texture_size[1]
+
+
+
+
+
+
 <ClickWindow>:
     FloatLayout
         Image:
@@ -139,28 +183,3 @@
                             size_hint: 0.1, 1
                             pos_hint: {"x": 0.8, "center_y": 0.5}
                             text: "1000"
-
-
-
-
-
-
-<LoginWindow>:
-     FloatLayout
-        Image:
-            source: "img_7.png"
-            allow_stretch: True
-            keep_ratio: False
-
-
-
-
-
-
-
-
-
-
-
-
-

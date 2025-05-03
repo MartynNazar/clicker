@@ -41,16 +41,18 @@ class LoginWindow(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
 
-    def go_login(self):
-        username_input = input("Введіть логін")
-        password_input = input("Введіть пароль")
-        if username_input in users:
-            if password_input in users:
+    def verify_login(self):
+        username = self.ids.username_input.text
+        password = self.ids.password_input.text
+        if username in users:
+            if users[username] == password:
                 self.manager.current = "click_window"
             else:
-                print("неправельний пароль")
+                self.ids.login_message.text = "Неправильний пароль"
         else:
-            print("неправельний логін")
+            self.ids.login_message.text = "Неправильний логін"
+        self.ids.username_input.text = ""
+        self.ids.password_input.text = ""
 
 
 
@@ -108,6 +110,7 @@ class ShopWindow(Screen):
 class ClickerApp(App):
     def build(self):
         sm = ScreenManager()
+        sm.add_widget(LoginWindow(name="login"))
         sm.add_widget(ClickWindow(name="click_window"))
         sm.add_widget(ShopWindow(name="shop"))
         return sm
